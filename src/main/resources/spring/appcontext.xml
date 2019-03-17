@@ -4,6 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!--强制使用cglib代理-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+
+    <!--默认使用jdk动态代理-->
     <aop:aspectj-autoproxy/>
     <bean class="com.gorden5566.aop.spring.aspect.MyAspect"/>
 
