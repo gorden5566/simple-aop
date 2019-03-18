@@ -44,11 +44,34 @@ public class AopProxyBeanPostProcessor implements BeanPostProcessor, BeanFactory
         // 初始化
         initAspect();
 
+        if (!needProxy(bean)) {
+            return null;
+        }
+
         // 创建SimpleProxy
         SimpleProxy simpleProxy = SimpleProxyFactory.getSimpleProxy(bean);
         simpleProxy.setInterceptors(interceptors);
 
         return simpleProxy.getProxy();
+    }
+
+    /**
+     * 判断是否需要代理
+     *
+     * @param bean
+     * @return
+     */
+    public boolean needProxy(Object bean) {
+        Class<?> clazz = bean.getClass();
+        Method[] methods = clazz.getMethods();
+        for (Method method : methods) {
+            List<Interceptor> matchedInterceptors = ProxyUtils.getMatchedInterceptors(interceptors, method);
+            if (matchedInterceptors != null && !matchedInterceptors.isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

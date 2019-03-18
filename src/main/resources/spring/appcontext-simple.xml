@@ -6,5 +6,6 @@
     <bean class="com.gorden5566.aop.simple.aspect.TestAspect"/>
 
     <bean id="helloService" class="com.gorden5566.aop.simple.service.impl.HelloServiceImpl"/>
+    <bean id="testService" class="com.gorden5566.aop.simple.service.impl.TestServiceImpl"/>
 
 </beans>
