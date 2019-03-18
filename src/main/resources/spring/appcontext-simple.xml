@@ -4,8 +4,10 @@
 
     <bean class="com.gorden5566.aop.simple.AopProxyBeanPostProcessor"/>
     <bean class="com.gorden5566.aop.simple.aspect.TestAspect"/>
+    <bean class="com.gorden5566.aop.simple.aspect.NoInterfaceAspect"/>
 
     <bean id="helloService" class="com.gorden5566.aop.simple.service.impl.HelloServiceImpl"/>
     <bean id="testService" class="com.gorden5566.aop.simple.service.impl.TestServiceImpl"/>
+    <bean id="noInterface" class="com.gorden5566.aop.simple.service.impl.NoInterfaceImpl"/>
 
 </beans>
